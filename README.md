@@ -1,34 +1,48 @@
-# Watch-Later-List
-The project assignment to maintain Things like Movies, TV Series in a Watch Later list. This assignment is a part of recuritment process for Stagewise
+<h1 align="center">reelqueue</h1>
+<p align="center">A watch-later list for films and series: what to watch, where it streams, and its genre, in one queue.</p>
 
-![alt text](./sc.png)
+<p align="center">
+  <img alt="React" src="https://img.shields.io/badge/ui-React%2018-61dafb">
+  <img alt="Express" src="https://img.shields.io/badge/api-Express-444">
+  <img alt="MongoDB" src="https://img.shields.io/badge/db-MongoDB-47a248">
+</p>
 
-## Technology Used
-**Frontend:**
-- React
-- Bootstrap
-- Css
+<p align="center"><img src="sc.png" alt="reelqueue: the list with its platform and genre filters" width="720"></p>
 
-**Backend:**
-- Node.js
-- Express.js
+## What it does
 
-## Setup
+- Add a title with its platform (Netflix, Amazon Prime, Disney+, Hotstar, Jio Cinema and others), its genre and a link to it.
+- Filter the queue by platform and by genre.
+- Edit or remove an entry once it is watched.
 
-Make sure to have MongoDB installed on your system.
+Built in January 2024 as the take-home assignment in Stagewise's hiring process.
 
-### There are 2 Folders:
-> watch-later-list-backend
+## Stack
 
-> watch-later-list-frontend
+| Part | Tools |
+|---|---|
+| Interface | React 18, Bootstrap 5, Axios |
+| API | Node.js, Express, Mongoose |
+| Database | MongoDB (local, `watch_later_list`) |
 
-Make sure to Install all dependencies in both.
-use `npm install`
+## Run it
 
-## Usage
+Start MongoDB on `localhost:27017`, then in two terminals:
 
-- Open Terminal **cd** into backend folder and run:
-`node app.js`
+```sh
+cd watch-later-list-backend && npm install && node app.js    # API on :5000
+cd watch-later-list-frontend && npm install && npm start     # interface on :3000
+```
 
-- Open another terminal window and **cd** into frontend folder and run:
-`npm start`
+## API
+
+| Method | Path | Does |
+|---|---|---|
+| `GET` | `/api/records` | Every entry |
+| `POST` | `/api/records` | Add one: `{ name, platform, genre, link }` |
+| `PUT` | `/api/records/:id` | Update one |
+| `DELETE` | `/api/records/:id` | Remove one |
+
+---
+
+By [Ziyam Khan](https://ziyamkhan.com) · [GitHub](https://github.com/ziyam-khan)
